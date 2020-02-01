@@ -63,7 +63,7 @@
       document.getElementById("angry_jump"),
       document.getElementById("sad_jump"),
       document.getElementById("happy_jump")
-    ],
+    ],      
 
     pakia_img: {
       sad: {},

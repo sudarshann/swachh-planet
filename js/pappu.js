@@ -60,7 +60,7 @@
 
     draw: function(ctx) {
       var cur_sprite_frame = this.fly_frame_count / this.change_per_frame;
-
+      
       if (utils.isInt(cur_sprite_frame)) {
         var source_y = cur_sprite_frame * 60;
       }
@@ -72,7 +72,7 @@
         var old_sprite_frame = parseInt(this.fly_frame_count/this.change_per_frame)
         var source_y = old_sprite_frame * 60;
       }
-
+      
       // console.log(cur_sprite_frame, source_x);
 
       // Rotation on Flying
@@ -136,7 +136,7 @@
 
     drawStatic: function(ctx) {
       var cur_sprite_frame = this.fly_frame_count / this.change_per_frame;
-
+      
       if (utils.isInt(cur_sprite_frame)) {
         var source_y = cur_sprite_frame * 60;
       }
@@ -163,7 +163,7 @@
         this.w,
         60
       );*/
-
+      
       ctx.drawImage(
         this.sprite,
         0,
@@ -244,8 +244,8 @@
         if (clone.x > mit.W || clone.y < 0 || clone.y > mit.H)
           self.clones.splice(index, 1);
 
-        clone.x += utils.randomNumber(500, 1000);
-        clone.y += utils.randomNumber(-2000, 2000);
+        clone.x += utils.randomNumber(5, 10);
+        clone.y += utils.randomNumber(-20, 20);
 
         clone.draw(ctx);
       });
@@ -260,7 +260,7 @@
       // super optimization :P
       if (!self.clones.length)
         return;
-
+      
       var branches = mit.BranchUtils.branches;
       var forks = mit.ForkUtils.forks;
       var pakias = mit.PakiaUtils.pakias;

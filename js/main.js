@@ -80,7 +80,7 @@ mit.main = function() {
 
   var music = document.getElementById("start");
   music.volume = 0.2;
-
+  
   var isMute = false;
 
   // Mute the game if button is clicked
@@ -164,11 +164,11 @@ mit.main = function() {
   // startGame();
 
   // Share links
-  // var tweet = document.getElementById("tweet");
-  // tweet.href='http://twitter.com/share?url=http://khele.in/pappu-pakia/&text=I am playing Pappu Pakia, a cute HTML5 game on khele.in!&count=horiztonal&via=_rishabhp&related=solitarydesigns';
+  var tweet = document.getElementById("tweet");
+  tweet.href='http://twitter.com/share?url=http://khele.in/pappu-pakia/&text=I am playing Pappu Pakia, a cute HTML5 game on khele.in!&count=horiztonal&via=_rishabhp&related=solitarydesigns';
 
-  // var facebook = document.getElementById("fb");
-  // facebook.href='http://facebook.com/sharer.php?s=100&p[url]=http://khele.in/pappu-pakia/&p[title]=I am playing Pappu Pakia, a cute HTML5 game on khele.in!';
+  var facebook = document.getElementById("fb");
+  facebook.href='http://facebook.com/sharer.php?s=100&p[url]=http://khele.in/pappu-pakia/&p[title]=I am playing Pappu Pakia, a cute HTML5 game on khele.in!';
 
 
   // Score Board
@@ -198,7 +198,7 @@ mit.main = function() {
 
   // Velocity cap on either sides of the
   // number system.
-  //
+  // 
   // You can console.log velocities in drawing methods
   // and from there decide what to set as the cap.
   mit.v_cap = 6.5;
@@ -268,7 +268,7 @@ mit.main = function() {
     // Space || Enter
     if (e.keyCode === 32 || e.keyCode === 13) {
       startGame();
-
+      
       e.preventDefault();
     }
 
@@ -323,11 +323,11 @@ mit.main = function() {
     mit.Pappu.clones.length = 0;
 
     // Share
-    // var tweet = document.getElementById("tweet");
-    // tweet.href='http://twitter.com/share?url=http://khele.in/pappu-pakia/&text=I just scored ' +Math.floor(mit.score)+ ' points in Pappu Pakia!&count=horiztonal&via=_rishabhp&related=solitarydesigns';
-
-    // var facebook = document.getElementById("fb");
-    // facebook.href='http://facebook.com/sharer.php?s=100&p[url]=http://khele.in/pappu-pakia/&p[title]=I just scored ' +Math.floor(mit.score)+ ' points in the Pappu Pakia!';
+    var tweet = document.getElementById("tweet");
+    tweet.href='http://twitter.com/share?url=http://khele.in/pappu-pakia/&text=I just scored ' +Math.floor(mit.score)+ ' points in Pappu Pakia!&count=horiztonal&via=_rishabhp&related=solitarydesigns';
+  
+    var facebook = document.getElementById("fb");
+    facebook.href='http://facebook.com/sharer.php?s=100&p[url]=http://khele.in/pappu-pakia/&p[title]=I just scored ' +Math.floor(mit.score)+ ' points in the Pappu Pakia!';
 
   };
 
@@ -420,7 +420,7 @@ mit.main = function() {
 
       // Acceleration + Gravity
       // mit.ay = mit.ay + mit.gravity;
-
+      
       // Velocity
       if (!mit.game_over) {
         if (
@@ -447,7 +447,7 @@ mit.main = function() {
         mit.vy += mit.gravity;
         mit.Pappu.y += mit.vy;
       }
-
+    
       mit.Pappu.draw(ctx);
     }
     else {

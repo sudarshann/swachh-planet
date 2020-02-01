@@ -52,7 +52,7 @@
     };
   };
 
-
+  
   // A ForkUtils class to help save the world
 
   mit.ForkUtils = {
@@ -154,7 +154,7 @@
           count = this.count;
 
       if (forks.length < count) {
-
+        
         for (var i = 0; i < count - forks.length; i++) {
           var fork = new mit.Fork();
 
@@ -187,7 +187,7 @@
 
           forks.push(fork);
         }
-
+        
       }
     },
 
@@ -199,7 +199,7 @@
           dead_forks = 0;
 
       this.create();
-
+      
       // Loop over forks and draw each of them
       forks.forEach(function(fork, index) {
 
@@ -301,7 +301,7 @@
       var pappu_bounds = mit.Pappu.getBounds(),
           // Get Nearest Fork's Handle's Bounds
           fork_bounds = first_fork.getHandleBounds();
-
+      
       // Check whether pappu collided with the
       // fork handle or not.
       if (utils.intersect(pappu_bounds, fork_bounds)) {
