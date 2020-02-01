@@ -31,7 +31,7 @@
   var images = {
     angry_pakia : "img/angry_pakia.png",
     backtrees : "img/back_trees.png",
-    berries : "img/berries.png",
+    berries : "img/sample.png",
     bg_combined: "img/bg_combined.png",
     branch : "img/branch.png",
     clouds : "img/clouds.png",
