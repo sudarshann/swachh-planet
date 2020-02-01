@@ -276,8 +276,10 @@ canvas#game_bg {
 }
 
 .options ul li a {
-	color: #FFEEAA;
-	text-decoration: none;
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: 0 0 10px black;
+    margin-left: -25px;
 }
 
 .options ul li:first-child {

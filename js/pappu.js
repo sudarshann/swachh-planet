@@ -12,7 +12,7 @@
     invincibility_start: 0,
     invincibility_time: 0,
     clones: [],
-
+    clone: 0,
     rotate_angle: 0,
 
     sprite: {},
@@ -62,7 +62,7 @@
       var cur_sprite_frame = this.fly_frame_count / this.change_per_frame;
       
       if (utils.isInt(cur_sprite_frame)) {
-        var source_y = cur_sprite_frame * 120;
+        var source_y = cur_sprite_frame * 86;
       }
 
       else {
@@ -70,7 +70,7 @@
 
         // Ultra smooth animations
         var old_sprite_frame = parseInt(this.fly_frame_count/this.change_per_frame)
-        var source_y = old_sprite_frame * 120;
+        var source_y = old_sprite_frame * 86;
       }
       
       // console.log(cur_sprite_frame, source_x);
@@ -100,8 +100,10 @@
 
       ctx.translate(this.x, this.y);
       ctx.translate(this.w/2, this.h/2);
-      ctx.rotate(utils.toRadian(this.rotate_angle));
-
+      
+      if(this.clone === 0){
+        ctx.rotate(utils.toRadian(this.rotate_angle));
+      }
       if (this.invincible) {
         ctx.globalAlpha = 0.4;
 
@@ -124,11 +126,11 @@
           0,
           source_y,
           this.w,
-          120,
+          86,
           -this.w/2,
           -this.h/2,
           this.w,
-          120,
+          86,
         );
 
       ctx.restore();
@@ -138,7 +140,7 @@
       var cur_sprite_frame = this.fly_frame_count / this.change_per_frame;
       
       if (utils.isInt(cur_sprite_frame)) {
-        var source_y = cur_sprite_frame * 120;
+        var source_y = cur_sprite_frame * 86;
       }
 
       else {
@@ -146,7 +148,7 @@
 
         // Ultra smooth animations
         var old_sprite_frame = parseInt(this.fly_frame_count/this.change_per_frame)
-        var source_y = old_sprite_frame * 120;
+        var source_y = old_sprite_frame * 86;
       }
 
 
@@ -169,11 +171,11 @@
         0,
         source_y,
         this.w,
-        120,
+        86,
         this.x,
         this.y,
         this.w,
-        100
+        86
       );
     },
 
@@ -229,7 +231,7 @@
         pappu_clone = Object.create(mit.Pappu);
 
         pappu_clone.invincible = 0;
-
+        pappu_clone.clone = 1;
         this.clones.push(pappu_clone);
       }
 
@@ -245,8 +247,15 @@
           self.clones.splice(index, 1);
 
         clone.x += utils.randomNumber(5, 10);
-        clone.y += utils.randomNumber(-20, 20);
-
+        if(index === 0 ){
+            clone.y += utils.randomNumber(-10, 0);
+        } else if(index === 2 ){
+            clone.y += utils.randomNumber(0, 10);
+        } else {
+            clone.y=0;
+        }
+        
+         
         clone.draw(ctx);
       });
 
