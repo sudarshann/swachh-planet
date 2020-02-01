@@ -62,7 +62,7 @@
       var cur_sprite_frame = this.fly_frame_count / this.change_per_frame;
       
       if (utils.isInt(cur_sprite_frame)) {
-        var source_y = cur_sprite_frame * 60;
+        var source_y = cur_sprite_frame * 120;
       }
 
       else {
@@ -70,7 +70,7 @@
 
         // Ultra smooth animations
         var old_sprite_frame = parseInt(this.fly_frame_count/this.change_per_frame)
-        var source_y = old_sprite_frame * 60;
+        var source_y = old_sprite_frame * 120;
       }
       
       // console.log(cur_sprite_frame, source_x);
@@ -124,11 +124,11 @@
           0,
           source_y,
           this.w,
-          60,
+          120,
           -this.w/2,
           -this.h/2,
           this.w,
-          60
+          120,
         );
 
       ctx.restore();
@@ -138,7 +138,7 @@
       var cur_sprite_frame = this.fly_frame_count / this.change_per_frame;
       
       if (utils.isInt(cur_sprite_frame)) {
-        var source_y = cur_sprite_frame * 60;
+        var source_y = cur_sprite_frame * 120;
       }
 
       else {
@@ -146,7 +146,7 @@
 
         // Ultra smooth animations
         var old_sprite_frame = parseInt(this.fly_frame_count/this.change_per_frame)
-        var source_y = old_sprite_frame * 60;
+        var source_y = old_sprite_frame * 120;
       }
 
 
@@ -169,11 +169,11 @@
         0,
         source_y,
         this.w,
-        60,
+        120,
         this.x,
         this.y,
         this.w,
-        60
+        100
       );
     },
 

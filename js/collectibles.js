@@ -71,9 +71,9 @@
       ctx.drawImage(
         mit.CollectibleUtils.coin_img,
         pos.x, pos.y,
-        30, 30,
+        60, 60,
         this.x, this.y,
-        30, 30
+        60, 60
       );
     };
 
@@ -197,8 +197,8 @@
         collec.x = pos.x;
         collec.y = pos.y;
 
-        collec.w = 30;
-        collec.h = 30;
+        collec.w = 60;
+        collec.h = 60;
 
         // Type
         collec.type = this.types[utils.randomNumber(0, this.types.length-1)];

@@ -1,27 +1,27 @@
 
-mit.main = function() {
+mit.main = function () {
 
   // rAF
-  window.requestAnimationFrame = function() {
+  window.requestAnimationFrame = function () {
     return window.requestAnimationFrame ||
       window.webkitRequestAnimationFrame ||
       window.mozRequestAnimationFrame ||
       window.msRequestAnimationFrame ||
       window.oRequestAnimationFrame ||
-      function(f) {
-        window.setTimeout(f,1e3/60);
+      function (f) {
+        window.setTimeout(f, 1e3 / 60);
       }
   }();
 
   // cAF
-  window.cancelAnimationFrame = function() {
+  window.cancelAnimationFrame = function () {
     return window.cancelAnimationFrame ||
       window.webkitCancelAnimationFrame ||
       window.mozCancelAnimationFrame ||
       window.msCancelAnimationFrame ||
       window.oCancelAnimationFrame ||
-      function(f) {
-        window.setTimeout(f,1e3/60);
+      function (f) {
+        window.setTimeout(f, 1e3 / 60);
       }
   }();
 
@@ -65,10 +65,10 @@ mit.main = function() {
 
   // Resizing Width/Height
   if (canvas.height < 500) {
-    canvas.width = canvas.height * 1000/500;
+    canvas.width = canvas.height * 1000 / 500;
   }
   if (canvas.width < 1000) {
-    canvas.height = canvas.width * 500/1000;
+    canvas.height = canvas.width * 500 / 1000;
   }
 
   // BG Canvas
@@ -80,12 +80,12 @@ mit.main = function() {
 
   var music = document.getElementById("start");
   music.volume = 0.2;
-  
+
   var isMute = false;
 
   // Mute the game if button is clicked
-  $("#mute").click(function() {
-    if(isMute == false) {
+  $("#mute").click(function () {
+    if (isMute == false) {
       $(this).css("backgroundPosition", "0px -40px");
       music.volume = 0;
       isMute = true;
@@ -111,7 +111,7 @@ mit.main = function() {
   ui.start_screen.css('height', canvas.height + 'px');
 
   // Start Button
-  var startGame = function() {
+  var startGame = function () {
     // Play the awesome music! Really awesome
     music.play();
     flap.pause();
@@ -153,7 +153,7 @@ mit.main = function() {
     mit.PakiaUtils.cur_pakia = false;
   };
 
-  ui.start_game.on('mousedown', function() {
+  ui.start_game.on('mousedown', function () {
     startGame();
 
     return false;
@@ -171,9 +171,9 @@ mit.main = function() {
 
     mit.highScore = JSON.parse(localStorage.getItem("highScore"));
     if (mit.highScore)
-      ui.high_score.text("High Score: "+ mit.highScore);
+      ui.high_score.html("Highest Bill: " + parseInt(mit.highScore).toFixed(2).replace(/(\d)(?=(\d{2})+\d\.)/g, '$1,') + '<span class="gst"> incl. GST</span>');
 
-  } catch (e) {}
+  } catch (e) { }
 
   ui.score_board.css('width', canvas.width + 'px');
   ui.score_board.css('height', canvas.height + 'px');
@@ -204,7 +204,7 @@ mit.main = function() {
   // Flying up ?
   mit.flying_up = 0;
 
-  mit.ascend = function() {
+  mit.ascend = function () {
     if (!mit.start_btn_clicked)
       return;
 
@@ -217,7 +217,7 @@ mit.main = function() {
     mit.flying_up = 1;
   };
 
-  mit.descend = function() {
+  mit.descend = function () {
     if (!mit.start_btn_clicked)
       return;
 
@@ -226,27 +226,27 @@ mit.main = function() {
   };
 
   // Game play on mouse clicks too!
-  window.addEventListener('mousedown', function(e) {
+  window.addEventListener('mousedown', function (e) {
     mit.ascend();
   }, false);
 
-  window.addEventListener('mouseup', function(e) {
+  window.addEventListener('mouseup', function (e) {
     mit.descend();
   }, false);
 
 
   // Game play on touch too!
-  window.addEventListener('touchstart', function(e) {
+  window.addEventListener('touchstart', function (e) {
     mit.ascend();
   }, false);
 
-  window.addEventListener('touchend', function(e) {
+  window.addEventListener('touchend', function (e) {
     mit.descend();
   }, false);
 
 
   // ... and keyzz...
-  window.addEventListener('keydown', function(e) {
+  window.addEventListener('keydown', function (e) {
 
     // Up
     if (e.keyCode === 38) {
@@ -262,13 +262,13 @@ mit.main = function() {
     // Space || Enter
     if (e.keyCode === 32 || e.keyCode === 13) {
       startGame();
-      
+
       e.preventDefault();
     }
 
   }, false);
 
-  window.addEventListener('keyup', function(e) {
+  window.addEventListener('keyup', function (e) {
 
     if (e.keyCode === 38) {
       mit.descend();
@@ -281,7 +281,7 @@ mit.main = function() {
   /*
     Performing some game over tasks
   */
-  mit.gameOver = function() {
+  mit.gameOver = function () {
     ui.start_screen.fadeIn();
 
     // High Score
@@ -289,14 +289,14 @@ mit.main = function() {
       mit.highScore = parseInt(mit.score);
       localStorage.setItem("highScore", JSON.stringify(parseInt(mit.score)));
 
-      ui.high_score.text("High Score: "+ mit.highScore);
+      ui.high_score.text("High Score: " + mit.highScore);
     }
 
     // Show last_score
-    ui.last_score.text("Last Score: " + parseInt(mit.score));
+    ui.last_score.html("Bill: " + parseInt(mit.score).toFixed(2).replace(/(\d)(?=(\d{2})+\d\.)/g, '$1,') + "<span class='gst'> incl. GST</span>");
 
 
-    ui.start_game.html('re-start');
+    ui.start_game.html('Restart');
     ui.tweet.html('tweet score');
     ui.fb.html('post on fb');
 
@@ -321,7 +321,7 @@ mit.main = function() {
   };
 
   mit.last_time = new Date();
-  setInterval(function() {
+  setInterval(function () {
     mit.ui.fps_count.html(mit.fps.toFixed(0) + ' FPS');
   }, 1000);
 
@@ -404,18 +404,18 @@ mit.main = function() {
       // Update score
       if (!mit.game_over) {
         mit.score = mit.score += 0.1;
-        ui.score_board.text(parseInt(mit.score));
+        ui.score_board.html('Bill: ' + parseInt(mit.score).toFixed(2).replace(/(\d)(?=(\d{2})+\d\.)/g, '$1,') + "<span class='gst'> incl. GST</span>");
       }
 
       // Acceleration + Gravity
       // mit.ay = mit.ay + mit.gravity;
-      
+
       // Velocity
       if (!mit.game_over) {
         if (
-          (mit.vy < mit.v_cap && mit.ay+mit.gravity > 0) ||
-          (mit.vy > -mit.v_cap && mit.ay+mit.gravity < 0)
-          ) {
+          (mit.vy < mit.v_cap && mit.ay + mit.gravity > 0) ||
+          (mit.vy > -mit.v_cap && mit.ay + mit.gravity < 0)
+        ) {
 
           // console.log(mit.ay);
           mit.vy += mit.ay;
@@ -436,7 +436,7 @@ mit.main = function() {
         mit.vy += mit.gravity;
         mit.Pappu.y += mit.vy;
       }
-    
+
       mit.Pappu.draw(ctx);
     }
     else {
