@@ -2,7 +2,7 @@
 
 ### About the Game
 
-This HTML5 Game (has been happily made for the [Global Game Jam](https://globalgamejam.org/2020). With Theme Repair.
+This HTML5 Game (has been happily made for the [Global Game Jam](https://globalgamejam.org/2020/games/swachh-planet-6). With Theme Repair.
 
 You are Construction Truck in the game, Trying Repair/Fix the Damage Done. You need to click the mouse or tap (touch screen) to steer else Truck will Crash. If he hits the top or bottom boundaries that'll end the game with fatal accident.
 
